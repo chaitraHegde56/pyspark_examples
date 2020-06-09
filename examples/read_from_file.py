@@ -14,7 +14,15 @@ def read_csv(sqlcontext):
     """
     Function to read csv file and return dataframe
     """
-    dataframesqlcontext.read.csv('/home/chai/students.csv', header='true')
+    dataframe = sqlcontext.read.csv('/home/chai/students.csv', header='true')
+    return dataframe
+
+
+def read_txt(sqlcontext):
+    """
+    Function to read csv file and return dataframe
+    """
+    dataframe = sqlcontext.read.text('/home/chai/test.text')
     return dataframe
 
 
@@ -33,6 +41,10 @@ def main():
 
     # Read csv file
     dataframe = read_csv(sqlcontext)
+    dataframe.show()
+
+    # Read text file
+    dataframe = read_txt(sqlcontext)
     dataframe.show()
 
 
